@@ -18,6 +18,8 @@ export class TodoCardComponent implements OnInit {
 
   inputTask = 'Nueva Tarea';
 
+  editing: boolean=false;
+
   constructor() { 
   
   }
@@ -31,7 +33,11 @@ export class TodoCardComponent implements OnInit {
   }
 
   deleteTask(tasks: Task) {
-
-    console.log('Eliminadno ${task}')
-  }
+    const index: number = this.tasks.indexOf(tasks);
+    if(index !== -1){
+      this.tasks.splice(index, 1);
+    }
+    console.log('Eliminando ${task}')
+  
+}
 }
